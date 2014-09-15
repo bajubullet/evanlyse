@@ -68,3 +68,36 @@ def get_events_for_active_events():
         A queryset or EventInstance objects.
     """
     return models.EventInstance.objects.filter(event__is_active=True)
+
+
+def get_events_for_accounts(accounts):
+    """Returns events for list of accounts.
+
+    Returns:
+        A queryset or EventInstance objects.
+    """
+    return models.EventInstance.objects.filter(account__in=accounts)
+
+
+def get_events_count_by_type(accounts=None, host_ips=None, host_names=None):
+    """Returns event count by event_def_id.
+
+    Returns:
+        A list of event def id and their counts.
+    """
+    events = models.EventInstance.objects.all()
+    if accounts is not None:
+        events = events.filter(account__in=accounts)
+
+    if host_ips is not None:
+        events = events.filter(host__host_ip__in=host_ips)
+
+    if host_names is not None:
+        events = events.filter(host__host_name__in=host_names)
+
+    events = events.values(
+        'event_def_id').annotate(event_count=Count('event_def_id'))
+    return events
+
+
+
