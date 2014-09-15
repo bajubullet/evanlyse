@@ -38,7 +38,7 @@ def import_event_definations(filename):
                                    portal_tab=portal_tab,
                                    is_portal_visible=row['portal_visible'])
             print defination.event_def_id
-            #defination.save()
+            defination.save()
             print '--'*34
         except Exception as ex:
             print ex
