@@ -8,3 +8,4 @@ def home_view(request):
         'test_resp.html',
         context_instance=template.RequestContext(request))
     return response
+
