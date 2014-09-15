@@ -19,7 +19,7 @@ class EventDefinition(models.Model):
     element = models.CharField(max_length=255, null=True, blank=True)
 
 class Account(models.Model):
-    account_id = models.CharField(_('account id'), max_length=255)
+    account_id = models.CharField(_('account id'), max_length=255, primary_key=True)
 
 class EventInstance(models.Model):
     object_type = models.CharField(_('object type'), max_length=255)
@@ -28,6 +28,9 @@ class EventInstance(models.Model):
     event_time = models.DateTimeField(_('event time'))
     event_receive_time = models.DateTimeField(_('event receive time'), auto_now_add=True)
     event_definition = models.ForeignKey(EventDefinition)
+    host = models.ForeignKey(Host)
+    event_uuid = models.CharField(max_length=255)
+
+class Host(models.Model):
     host_ip = models.IPAddressField(_('host ip'))
     host_name = models.CharField(_('host name'), max_length=255)
-    event_uuid = models.CharField(max_length=255)
