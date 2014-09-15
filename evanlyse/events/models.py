@@ -38,3 +38,4 @@ class EventInstance(models.Model):
     event_definition = models.ForeignKey(EventDefinition)
     host = models.ForeignKey(Host)
     event_uuid = models.CharField(max_length=255)
+

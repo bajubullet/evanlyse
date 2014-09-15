@@ -24,6 +24,10 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+TEMPLATE_DIR = (
+    BASE_DIR
+)
+
 ALLOWED_HOSTS = []
 
 
