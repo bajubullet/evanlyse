@@ -1,3 +1,6 @@
 from django.contrib import admin
+from models import EventDefinition, EventInstance
 
-# Register your models here.
+admin.site.register(EventDefinition)
+admin.site.register(EventInstance)
+
