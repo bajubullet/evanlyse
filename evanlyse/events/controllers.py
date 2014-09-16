@@ -152,6 +152,13 @@ def suspected_event(account_id):
         top_events = sorted(top_events.iteritems(), key=top_events.get)
         event_id = top_events[-1][0]
     return models.EventDefinition.objects.filter(event_def_id=tmp_event_id)
+
+
+def get_all_accounts():
+    accounts = models.Account.objects.all()
+    return accounts
+
+
 def top_events(account_id, n=10):
     try:
         account = models.Account.objects.get(account_id=account_id)

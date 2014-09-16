@@ -1,0 +1,6 @@
+{
+    'accounts': [
+    {% for account in accounts %}
+        '{{ account.account_id }}'{% if not forloop.last %},{% endif %}
+    {% endfor %}]
+}
