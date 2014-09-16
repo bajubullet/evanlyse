@@ -1,0 +1,143 @@
+
+<div id="config-form-loader"></div>
+<div id="home-container" class="panelx panel-defaultx">
+    <div class="wide-form-container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dashboard-tile tile-white">
+                    <div class="row">
+                        <span class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                            <i class="fa fa-folder-open fa-4x"></i>
+                        </span>
+                        <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                            <h4>Load A Report Pack</h4>
+                            <i class="fa fa-caret-right"></i> Select Report Pack<br>
+                            <i class="fa fa-caret-right"></i> View Report Info<br>
+                            <i class="fa fa-caret-right"></i> Load Dashboard<br>
+                        </span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:right">
+                            <div class="spacer"></div>
+			    	        <button id="loadexisting-btn" type="submit" class="btn-home btn btn-primary" data-set="1">
+                                GO &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dashboard-tile tile-white">
+                    <div class="row">
+                        <span class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                            <i class="fa fa-gears fa-4x"></i>
+                        </span>
+                        <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                            <h4>Create/Edit Report</h4>
+                            <i class="fa fa-caret-right"></i> Generate new reports<br>
+                            <i class="fa fa-caret-right"></i> Edit exisiting reports<br>
+                            <i class="fa fa-caret-right"></i> Add new accounts<br>
+                        </span>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:right">
+                            <div class="spacer"></div>
+			    	        <button id="createnew-btn" type="submit" class="btn-home btn btn-primary" data-set="2" disabled>
+                                GO &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacer"></div>
+            <hr>
+            <p><strong>NOTE: </strong> You can use the predefined report packs available from the <i>Load An Existing Report</i> page to generate customized reports. If you would like to add report packs or accounts, email:<br>  
+                <a href="mailto:sd-cst@akamai.com" target="_blank">sd-cst@akamai.com</a>
+            </p>
+    </div>
+</div>
+
+<div id="config-form-container" class="init-hide panelx">
+	<div class="wide-form-container">
+		<form id="config-form" class="form-horizontal" method="post" role="form">
+            <h4 id="section-title">Load An Existing Report Pack</h4>
+            <hr>
+            <div id="config-container" class="init-show">
+                <div id="sel-reports" class="form-group">
+			    	<label for="inputEmail1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label">Available Report Packs: </label>
+			    	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			      		<select id="config-sel" class="form-control"></select>
+			    	</div>
+			  	</div>
+            </div>
+            <div class="spacer"></div>
+		  	<div id="accountss-container" class="init-show">
+				<div class="form-group">
+			    	<label for="inputEmail1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label">Name: </label>
+			    	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			      		<input type="text" class="form-control" id="configname_txt" name="configname_txt" readonly>
+			    	</div>
+			  	</div>
+		  	</div>            
+		  	<div id="add-accounts-container" class="init-show">
+				<div class="form-group">
+			    	<label for="inputEmail1" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label">Accounts: </label>
+			    	<div id="acct-div" class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			      		<input type="text" class="form-control" id="add_accounts_txt" name="add_accounts_txt" readonly>
+			    	</div>
+			  	</div>
+		  	</div>
+            <div class="spacer"></div>
+            <div id="metrics-container" class="init-show">
+                <h4>Metrics</h4>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                        <div class="checkbox">
+                            <label><input id="chkSelectall" type="checkbox" value="" >Select All</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="TotalWafReq" class="configchk">Total WAF Requests</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="Policies" class="configchk">WAF Policies</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="DistWafActivity" class="configchk">Distribution of WAF Activity by Agency</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="TotalWafAlerts" class="configchk">Total WAF Alerts &amp; % Distribution</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="TotalWafDeny" class="configchk">Total WAF Deny &amp; % Distribution</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-6">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="TopRulesTriggered" class="configchk">Top 10 Rules Triggered</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="DistIPDenied" class="configchk">Distribution of IPs Denied by Country</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="TopIPDenied" class="configchk">Top 10 IPs Denied by Geolocation</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="NewProps" class="configchk">New Properties Added or Removed</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="NewRules" class="configchk">New Rules Added or Removed</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer"></div>
+		  	<hr>		
+			<!-- ACTION! -->
+			<div class="spacer"></div>
+            <div id="config-msg" class="status-msg init-hide"></div>
+            <div class="spacer"></div>
+			<div class="form-group">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center">
+			    	<button id="load-btn" type="submit" class="btn btn-primary">SAVE &amp; LOAD DASHBOARD &rarr;</button>
+			    </div>
+			</div>
+		</form>
+	</div>
+</div>
