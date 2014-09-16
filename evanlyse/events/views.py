@@ -12,6 +12,15 @@ def home_view(request):
     return response
 
 
+def all_accounts(request):
+    account_data = controllers.get_all_accounts()
+    response = shortcuts.render_to_response(
+        'all_accounts.html',
+        context_instance=template.RequestContext(request, {
+            'accounts': account_data
+        }))
+    return response
+
 def top_hosts(request):
     by_most_events = request.GET.get('by_most_events')
     by_most_events = False if by_most_events == 'False' else True
@@ -66,5 +75,3 @@ def top_events(request):
         context_instance=template.RequestContext(
             request, {'events': events}))
     return response
-
-
