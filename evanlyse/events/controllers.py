@@ -14,6 +14,7 @@ def get_events_by_account(account_id):
     """
     return models.EventInstance.objects.filter(account__account_id=account_id)
 
+
 def get_events_by_date(after, before):
     """Returns events in given time range.
 
@@ -69,7 +70,16 @@ def get_events_for_active_events():
     Returns:
         A queryset or EventInstance objects.
     """
-    return models.EventInstance.objects.filter(event__is_active=True)
+    return models.EventInstance.objects.filter(event_definition__is_active=True).count()
+
+
+def get_all_event_count():
+    """Returns all events.
+
+    Returns:
+        A queryset or EventInstance objects.
+    """
+    return models.EventInstance.objects.count()
 
 
 def get_events_for_accounts(accounts):

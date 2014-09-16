@@ -2,6 +2,7 @@ from django import shortcuts
 from django import template
 
 import controllers
+import datetime
 
 
 def home_view(request):
@@ -35,5 +36,16 @@ def top_accounts(request):
         context_instance=template.RequestContext(request, {
             'accounts': account_data
         }),
+        content_type="application/json")
+    return response
+
+
+def total_events(request):
+    events = controllers.get_all_event_count()
+    active_events = controllers.get_events_for_active_events()
+    response = shortcuts.render_to_response(
+        'total_events.json',
+        {'events': events, 'active': active_events},
+        context_instance=template.RequestContext(request),
         content_type="application/json")
     return response
