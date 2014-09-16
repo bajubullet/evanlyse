@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + '/../')
 from StringIO import StringIO
 from csv import DictReader
 from events import models
+import datetime
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "evanlyse.settings")
 import django
@@ -47,4 +48,27 @@ def import_event_definations(filename):
             # print row, ex
 
 
-import_event_definations('../data/EventDefinitions.csv')
+def import_event_instances(filename):
+	data = get_dict_from_csv_string(open(filename).read())
+	for row in data:
+		try:
+			print row
+			defination = models.EventDefinition.objects.get(event_def_id=int(row['event_definition_id']))
+			if defination:
+				host = models.Host.objects.get_or_create(host_ip=row['host_ip'], host_name=row['host_name'])
+				account = models.Account.objects.get_or_create(account_id=row['account_id'])
+				instance = models.EventInstance(event_definition=defination,
+												host=host,
+												account=account,
+												event_uuid=row['event_uuid'],
+												object_id=row['object_id'],
+												event_time=datetime.datetime(row['event_time']),
+												event_receive_time=datetime.datetime(row['receive_time']),
+												object_type=row['object_type'])
+				instance.save()
+		except Exception as ex:
+			print ex
+
+
+#import_event_definations('../data/EventDefinitions.csv')
+import_event_instances('../data/2014-09-07.csv')
