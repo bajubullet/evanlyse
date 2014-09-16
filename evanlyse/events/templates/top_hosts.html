@@ -1,1 +1,5 @@
-{}
+{
+    {% for host in hosts %}
+        {{ host.host__host_name }}: {{ host.host_count }},
+    {% endfor %}
+}
