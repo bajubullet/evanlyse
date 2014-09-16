@@ -1,4 +1,5 @@
 import models
+import datetime
 
 from django.db.models import Count
 
@@ -134,3 +135,20 @@ def top_accounts(n=10, by_most_events=True):
         return events[:n]
 
 
+def suspected_event(account_id):
+    events = get_events_by_account(account_id)
+    current_hour = datetime.datetime.now().hour
+    top_events = {}
+    tmp_event_id = None
+    for event in events:
+        if not tmp_event_id:
+            tmp_event_id = event.event_definition.event_def_id
+        if event.event_time.hour == current_hour:
+            count = top_events.get(event.event_definition.event_def_id, 0)
+            top_events[event.event_definition.event_def_id] = count + 1
+    if not top_events:
+        event_id = tmp_event_id
+    else:
+        top_events = sorted(top_events.iteritems(), key=top_events.get)
+        event_id = top_events[-1][0]
+    return models.EventDefinition.objects.filter(event_def_id=tmp_event_id)

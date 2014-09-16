@@ -47,3 +47,15 @@ def total_events(request):
         context_instance=template.RequestContext(request),
         content_type="application/json")
     return response
+
+
+def suspected_event(request):
+    account_id = request.GET.get('account_id')
+    event = controllers.suspected_event(account_id)[:1][0]
+    response = shortcuts.render_to_response(
+        'suspected_event.json',
+        {'event': event.name, 'description': event.description},
+        context_instance=template.RequestContext(request),
+        content_type="application/json")
+    return response
+
