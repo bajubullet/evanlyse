@@ -15,6 +15,7 @@ def get_events_by_account(account_id):
     """
     return models.EventInstance.objects.filter(account__account_id=account_id)
 
+
 def get_events_by_date(after, before):
     """Returns events in given time range.
 
@@ -70,7 +71,16 @@ def get_events_for_active_events():
     Returns:
         A queryset or EventInstance objects.
     """
-    return models.EventInstance.objects.filter(event__is_active=True)
+    return models.EventInstance.objects.filter(event_definition__is_active=True).count()
+
+
+def get_all_event_count():
+    """Returns all events.
+
+    Returns:
+        A queryset or EventInstance objects.
+    """
+    return models.EventInstance.objects.count()
 
 
 def get_events_for_accounts(accounts):
@@ -105,22 +115,43 @@ def get_events_count_by_type(accounts=None, host_ips=None, host_names=None):
 
 def top_hosts(n=10, by_most_events=True):
     events = models.EventInstance.objects.values(
-        'host').annotate(host_count=Count('host')).order_by('-host_count')
+        'host__host_name').annotate(host_count=Count('host')).order_by('-host_count')
     if by_most_events is True:
+        events = events.order_by('-host_count')
         return events[:n]
     else:
-        return events[-n:]
+        events = events.order_by('host_count')
+        return events[:n]
 
 
 def top_accounts(n=10, by_most_events=True):
     events = models.EventInstance.objects.values(
-        'account').annotate(account_count=Count('account')).order_by('-account_count')
+        'account').annotate(account_count=Count('account'))
     if by_most_events is True:
+        events = events.order_by('-account_count')
         return events[:n]
     else:
-        return events[-n:]
+        events = events.order_by('account_count')
+        return events[:n]
 
 
+def suspected_event(account_id):
+    events = get_events_by_account(account_id)
+    current_hour = datetime.datetime.now().hour
+    top_events = {}
+    tmp_event_id = None
+    for event in events:
+        if not tmp_event_id:
+            tmp_event_id = event.event_definition.event_def_id
+        if event.event_time.hour == current_hour:
+            count = top_events.get(event.event_definition.event_def_id, 0)
+            top_events[event.event_definition.event_def_id] = count + 1
+    if not top_events:
+        event_id = tmp_event_id
+    else:
+        top_events = sorted(top_events.iteritems(), key=top_events.get)
+        event_id = top_events[-1][0]
+    return models.EventDefinition.objects.filter(event_def_id=tmp_event_id)
 def top_events(account_id, n=10):
     try:
         account = models.Account.objects.get(account_id=account_id)

@@ -1,0 +1,59 @@
+
+<!-- MAIN TAGS -->
+<section class="row-fluidx">
+    <div class="mainpanel">
+        <div id="config-actions-container" class="containerz" style="padding-left: 55px;padding-right:5px">
+            <div id="config-msg" class="status-msg init-hide"></div>
+            <div id="config-panel" class="callout callout-primary init-hide">
+                <button id="close-config" type="button" class="close-wl-win close">&times;</button>
+                <h4>Filter: Add or Remove Accounts</h4>
+                <form id="edit-config" class="form-horizontall" role="form">
+                    <div id="accts-container" class="row"></div>
+                </form>
+            </div>
+        </div>
+        <div class="contentpanel panel-transparent">
+            <div class="panel-body">
+                <div class="content-tab">
+                    <div class="clearfix">
+                        <div class="pull-right">
+                            <div id="datefilter_container"></div>
+                        </div>
+                        <div class="pull-left">
+                            <div id="title-txt" class="super-heading"></div>
+                        </div>
+                    </div>
+                    <div id="date-subtitle" class="date-title pull-right" style="text-align:right;padding:5px;"></div>
+                    <div class="spacer"></div>
+                    <div id="dashboard-msgs" class="init-hide" style="margin-bottom:10px"></div>
+                    <div id="dashboard-loader" class="rowx"></div>
+                    <div id="dashboard-container" class="row"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END MAIN TAGS -->
+
+<!-- GRAPH PANEL TEMPLATE-->
+<div id="graphtemplate" class="init-hide">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" data-role="panel-container" style="margin-bottom:5px">
+        <div class="widget" data-role="widget-container">
+            <div class="widget-header" data-role="widget-heading">
+                <h3><span data-role="widget-heading-icon" class="glyphicon glyphicon-cog"></span>&nbsp;<span data-role="widget-heading-title">Heading</span></h3>
+                <em data-role="widget-heading-subtitle"></em>
+                <div class="btn-group widget-header-toolbar" data-role="widget-heading-toolbar">
+                    <button type="button" class="collapse-btn btn btn-widget btn-borderless pull-right" data-role="collapser" data-target="#collapsePerfz" data-toggle="collapse"></button>
+                    <button type="button" class="info-btn btn btn-widget btn-borderless" data-role="info-popup" data-container="body" data-toggle="popover" data-placement="left" data-content="Info text comes here">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </div>
+                <div class="init-hide" data-role="popover-template"></div>
+            </div>
+            <div id="collapsePerf" data-role="widget-collapsable" class="panel-collapse collapse in">
+                <div class="widget-content" data-role="widget-content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END GRAPH PANEL TEMPLATE -->

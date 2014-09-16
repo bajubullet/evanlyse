@@ -1,0 +1,211 @@
+
+<!-- MAIN TAGS -->
+<section class="row-fluidx">
+    <div class="mainpanel">
+        <div id="config-actions-container" class="containerz" style="padding-left: 55px;padding-right:5px">
+            <div id="config-msg" class="status-msg init-hide"></div>
+            <div id="config-panel" class="callout callout-primary init-hide">
+                <button id="close-config" type="button" class="close-wl-win close">&times;</button>
+                <h4>Filter: Add or Remove Accounts</h4>
+                <form id="edit-config" class="form-horizontall" role="form">
+                    <div id="accts-container" class="row"></div>
+                </form>
+            </div>
+        </div>
+        <div class="contentpanel panel-transparent">
+            <div class="panel-body">
+                <div class="content-tab">
+                    <div class="clearfix">
+                        <!-- button id="rt-resetzoom-btn" class="btn btn-default btn-xs pull-left" disabled>RESET ZOOM</button -->
+                        <div id="date-subtitle" class="date-title pull-right" style="text-align:right;padding:5px;"></div>
+                    </div>
+                    <div id="dashboard-msgs" class="init-hide" style="margin-bottom:10px"></div>
+                    <div id="dashboard-loader" class="rowx"></div>
+
+                    <div class="row">
+                    <div style="padding-right:15px;margin-bottom: 10px;" class="col-md-12 col-lg-12">
+                        <div data-role="widget-container" class="widget widget-gray">
+                            <div style="margin:0 auto" class="wide-form-container" data-role="widget-collapsable" id="collapsePerf">
+                                <div data-role="widget-content" class="widget-content" style="padding: 0px;">
+                                    <div class="clearfix">
+                                        <form method="get" role="form" class="form-inline" id="search_frm">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <h4>Select an account to see the account specific data</h4>
+                                                <div class="input-group">
+                                                    <select id="config-sel" class="form-control">
+                                                        <option value="">All</option>
+                                                        <option value="53b134f745e8a91375d8e291">Singapore Customers</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div id="dashboard-container" class="row">
+                            <div style="padding-right:0px;margin-bottom: 10px;" class="col-md-6 col-lg-4">
+                                <div data-role="widget-container" class="widget">
+                                <div data-role="widget-heading" class="widget-header">
+                                    <h3><i class="fa fa-dashboard" data-role="widget-heading-icon"></i>&nbsp;
+                                        <span data-role="widget-heading-title">TITLE</span></h3>
+                                    <em data-role="widget-heading-subtitle">SUBTITLE</em>
+                                    <div data-role="widget-heading-toolbar" class="btn-group widget-header-toolbar">
+                                        <button data-toggle="collapse" data-target="#collapseCDN" data-role="collapser" class="collapse-btn btn btn-widget btn-borderless pull-right" type="button"></button>
+                                    </div>
+                                    <div data-role="popover-template" class="init-hide"></div>
+                                </div>
+                                <div class="panel-collapse collapse in" data-role="widget-collapsable" id="collapseCDN">
+                                    <div data-role="widget-content" class="widget-content">
+                                        <div style="height:280px" id="first-chart" data-highcharts-chart="3"></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-right:0px;margin-bottom: 10px;" class="col-md-6 col-lg-4">
+                                <div data-role="widget-container" class="widget">
+                                <div data-role="widget-heading" class="widget-header">
+                                    <h3><i class="fa fa-dashboard" data-role="widget-heading-icon"></i>&nbsp;
+                                        <span data-role="widget-heading-title">TITLE</span></h3>
+                                    <em data-role="widget-heading-subtitle">SUBTITLE</em>
+                                    <div data-role="widget-heading-toolbar" class="btn-group widget-header-toolbar">
+                                        <button data-toggle="collapse" data-target="#collapseCDN" data-role="collapser" class="collapse-btn btn btn-widget btn-borderless pull-right" type="button"></button>
+                                    </div>
+                                    <div data-role="popover-template" class="init-hide"></div>
+                                </div>
+                                <div class="panel-collapse collapse in" data-role="widget-collapsable" id="collapseCDN">
+                                    <div data-role="widget-content" class="widget-content">
+                                        <div style="height:280px" id="second-chart" data-highcharts-chart="3"></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div style="padding-right:15px;margin-bottom: 10px;" class="col-md-6 col-lg-4">
+                                <div style="background:#37c2f4" class="flex-tile">
+                                    <br>
+                                    <div class="headline">
+                                    </div>
+                                    <div style="text-align:left" class="value">
+                                        <i style="color:#2EA4CE" class="fa fa-tachometer fa-4x pull-left"></i>
+                                        <div style="color:#FFF" class="num-value" id="topcdn_tilevalue_txt">92.2%</div>
+                                    </div>
+                                    <div style="color:#000;opacity:0.9;" class="data-line" id="topcdn_tilename_txt">AKAMAI</div>
+                                    <div class="spacer"></div>
+
+                                    <br />
+                                    <div class="headline">
+                                    </div>
+                                    <div style="text-align:left" class="value">
+                                        <i style="color:#2EA4CE" class="fa fa-tachometer fa-4x pull-left"></i>
+                                        <div style="color:#FFF" class="num-value" id="topcdn_tilevalue_txt">92.2%</div>
+                                    </div>
+                                    <div style="color:#000;opacity:0.9;" class="data-line" id="topcdn_tilename_txt">AKAMAI</div>
+                                    <br />
+                                </div>
+                            </div>
+                    </div>
+
+                    <div id="dashboard-container" class="row">
+                            <div style="padding-right:0px;margin-bottom: 10px;" class="col-md-6 col-lg-12">
+                                <div data-role="widget-container" class="widget">
+                                <div data-role="widget-heading" class="widget-header">
+                                    <h3><i class="fa fa-dashboard" data-role="widget-heading-icon"></i>&nbsp;
+                                        <span data-role="widget-heading-title">TITLE</span></h3>
+                                    <em data-role="widget-heading-subtitle">SUBTITLE</em>
+                                    <div data-role="widget-heading-toolbar" class="btn-group widget-header-toolbar">
+                                        <button data-toggle="collapse" data-target="#collapseCDN" data-role="collapser" class="collapse-btn btn btn-widget btn-borderless pull-right" type="button"></button>
+                                    </div>
+                                    <div data-role="popover-template" class="init-hide"></div>
+                                </div>
+                                <div class="panel-collapse collapse in" data-role="widget-collapsable" id="collapseCDN">
+                                    <div data-role="widget-content" class="widget-content">
+                                        <div style="height:280px" id="fourth-chart" data-highcharts-chart="3"></div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END MAIN TAGS -->
+
+
+<!-- PANEL STATS TEMPLATE-->
+<div id="statstemplate" class="init-hide">
+    <div class="panel panel-warning panel-stat" data-role="panel-container" style="margin-bottom:5px">
+        <div class="panel-body">
+            <div class="stat">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <span class="fa" style="font-size: 50px;" data-role="icon-container"></span>
+                    </div>
+                    <div class="col-xs-8">
+                        <small class="stat-label" data-role="stats-heading">Average Traffic</small>
+                        <h1 data-role="stats-value">900k+</h1>
+                    </div>
+                    <div class="col-xs-1">
+                        <button class="btn btn-widget btn-borderless" data-role="help-container">
+                            <span class="fa"></span>
+                        </button>
+                    </div>
+                </div><!-- row -->
+                <div class="spacer"></div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <span class="fa" style="font-size: 30px;" data-role="sub-icon-container1"></span>
+                    </div>
+                    <div class="col-xs-4">
+                        <small class="stat-label" data-role="stats-sub1">Peak Traffic</small>
+                        <h4 data-role="stats-val1">7.80%</h4>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="fa" style="font-size: 30px;" data-role="sub-icon-container2"></span>
+                    </div>
+                    <div class="col-xs-4">
+                        <small class="stat-label" data-role="stats-sub2">So Far</small>
+                        <h4 data-role="stats-val2">76.43%</h4>
+                    </div>
+                </div><!-- row -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <small class="stat-label" data-role="stats-sub3">Peak Traffic</small>
+                        <h4 data-role="stats-val3">7.80%</h4>
+                    </div>
+                </div><!-- row -->
+            </div><!-- stat -->
+        </div><!-- panel-heading -->
+    </div><!-- panel -->
+</div>
+<!-- END PANEL STATS TEMPLATE -->
+
+<!-- GRAPH PANEL TEMPLATE-->
+<div id="graphtemplate" class="init-hide">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" data-role="panel-container" style="margin-bottom:5px">
+        <div class="widget" data-role="widget-container">
+            <div class="widget-header" data-role="widget-heading">
+                <h3><span data-role="widget-heading-icon" class="glyphicon glyphicon-cog"></span>&nbsp;<span data-role="widget-heading-title">Heading</span></h3>
+                <em data-role="widget-heading-subtitle"></em>
+                <div class="btn-group widget-header-toolbar" data-role="widget-heading-toolbar">
+                    <button type="button" class="collapse-btn btn btn-widget btn-borderless pull-right" data-role="collapser" data-target="#collapsePerfz" data-toggle="collapse"></button>
+                    <button type="button" class="info-btn btn btn-widget btn-borderless" data-role="info-popup" data-container="body" data-toggle="popover" data-placement="left" data-content="Info text comes here">
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                </div>
+                <div class="init-hide" data-role="popover-template"></div>
+            </div>
+            <div id="collapsePerf" data-role="widget-collapsable" class="panel-collapse collapse in">
+                <div class="widget-content" data-role="widget-content"></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- END GRAPH PANEL TEMPLATE -->

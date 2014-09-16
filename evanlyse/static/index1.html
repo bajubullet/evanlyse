@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv='cache-control' content='no-cache, no-store, must-revalidate'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+      <meta http-equiv='pragma' content='no-store'>
+    <link rel="shortcut icon" href="favicon.png">
+    <title>Untitled</title>
+    <link href="application/libs/core/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="application/styles/font/fontstyles.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid" id="page-wrapper"><div id="toppanel-wrapper" class="row">
+<div class="top-panel">
+    <div class="logo pull-left">
+	   <img title="Logo" alt="Logo" class="img-responsive" src="application/images/akamai-logo.png">
+    </div>
+	<div role="navigation" class="navbar navbar-default navbar-static-top">
+        <ul class="nav navbar-nav pull-right" data-role="toppanel-navigation">
+           <li class="menuitem" id="m_2"><a class="menuitem" id="dashboard_btn"><h4 class="big-heading" id="appname_txt">Evanlyse </h4></a></li>
+        </ul>
+	 </div>
+</div>
+
+</div><div id="configure-wrapper" class="row">
+<div id="config-form-loader"></div>
+<div class="panelx panel-defaultx" id="home-container">
+    <div class="wide-form-container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dashboard-tile tile-white">
+                    <div class="row">
+                        <span class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                            <i class="fa fa-folder-open fa-4x"></i>
+                        </span>
+                        <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                            <h4>Load A Report Pack</h4>
+                            <i class="fa fa-caret-right"></i> Select Report Pack<br>
+                            <i class="fa fa-caret-right"></i> View Report Info<br>
+                            <i class="fa fa-caret-right"></i> Load Dashboard<br>
+                        </span>
+                        <div style="text-align:right" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="spacer"></div>
+			    	        <button data-set="1" class="btn-home btn btn-primary" type="submit" id="loadexisting-btn">
+                                GO →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dashboard-tile tile-white">
+                    <div class="row">
+                        <span class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                            <i class="fa fa-gears fa-4x"></i>
+                        </span>
+                        <span class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                            <h4>Create/Edit Report</h4>
+                            <i class="fa fa-caret-right"></i> Generate new reports<br>
+                            <i class="fa fa-caret-right"></i> Edit exisiting reports<br>
+                            <i class="fa fa-caret-right"></i> Add new accounts<br>
+                        </span>
+                        <div style="text-align:right" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="spacer"></div>
+			    	        <button disabled="" data-set="2" class="btn-home btn btn-primary" type="submit" id="createnew-btn">
+                                GO →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacer"></div>
+            <hr>
+            <p><strong>NOTE: </strong> You can use the predefined report packs available from the <i>Load An Existing Report</i> page to generate customized reports. If you would like to add report packs or accounts, email:<br>  
+                <a target="_blank" href="mailto:sd-cst@akamai.com">sd-cst@akamai.com</a>
+            </p>
+    </div>
+</div>
+
+<div class="init-hide panelx" id="config-form-container">
+	<div class="wide-form-container">
+		<form role="form" method="post" class="form-horizontal" id="config-form">
+            <h4 id="section-title">Load An Existing Report Pack</h4>
+            <hr>
+            <div class="init-show" id="config-container">
+                <div class="form-group" id="sel-reports">
+			    	<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label" for="inputEmail1">Available Report Packs: </label>
+			    	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			      		<select class="form-control" id="config-sel"></select>
+			    	</div>
+			  	</div>
+            </div>
+            <div class="spacer"></div>
+		  	<div class="init-show" id="accountss-container">
+				<div class="form-group">
+			    	<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label" for="inputEmail1">Name: </label>
+			    	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+			      		<input type="text" readonly="" name="configname_txt" id="configname_txt" class="form-control">
+			    	</div>
+			  	</div>
+		  	</div>            
+		  	<div class="init-show" id="add-accounts-container">
+				<div class="form-group">
+			    	<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 control-label" for="inputEmail1">Accounts: </label>
+			    	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" id="acct-div">
+			      		<input type="text" readonly="" name="add_accounts_txt" id="add_accounts_txt" class="form-control">
+			    	</div>
+			  	</div>
+		  	</div>
+            <div class="spacer"></div>
+            <div class="init-show" id="metrics-container">
+                <h4>Metrics</h4>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="" id="chkSelectall">Select All</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="TotalWafReq">Total WAF Requests</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="Policies">WAF Policies</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="DistWafActivity">Distribution of WAF Activity by Agency</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="TotalWafAlerts">Total WAF Alerts &amp; % Distribution</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="TotalWafDeny">Total WAF Deny &amp; % Distribution</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-6">
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="TopRulesTriggered">Top 10 Rules Triggered</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="DistIPDenied">Distribution of IPs Denied by Country</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="TopIPDenied">Top 10 IPs Denied by Geolocation</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="NewProps">New Properties Added or Removed</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" class="configchk" value="NewRules">New Rules Added or Removed</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer"></div>
+		  	<hr>		
+			<!-- ACTION! -->
+			<div class="spacer"></div>
+            <div class="status-msg init-hide" id="config-msg"></div>
+            <div class="spacer"></div>
+			<div class="form-group">
+				<div style="text-align:center" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			    	<button class="btn btn-primary" type="submit" id="load-btn">SAVE &amp; LOAD DASHBOARD →</button>
+			    </div>
+			</div>
+		</form>
+	</div>
+</div></div><div id="footer-wrapper" class="row">
+<div class="footer" id="footer">
+	<small>&copy;2014. Akamai Technologies</small><br>
+	<small>Best viewed using HTML5 compliant browsers: Chrome 22+/Safari 7+/IE9+/Firefox 27+</small><br>
+	<small class="version" id="appversion_txt"><i>Version: </i>0.0.1</small> | <small id="appauthor_txt"><i>Hand-crafted By: </i>cst.py</small><br>
+    <small> Click here for the <a href="/releasenotes" target="_blank">Release Notes</a></small>
+</div>
+
+<div class="spacer"></div>
+</div>
+</body>
+</html>

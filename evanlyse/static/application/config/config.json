@@ -1,0 +1,199 @@
+{
+    "application": {
+        "name":"Evanlyse ",
+        "version": "0.0.1",
+        "author": "cst.py",
+        "libraries":[
+                    {
+                        "name":"datatable",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/jquery.dataTables.min.js"
+                    },
+                    {
+                        "name":"datatable",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/dataTables.bootstrapPagination.js"
+                    },
+                    {
+                        "name":"Highcharts",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/highcharts/highstock.js"
+                    },
+                    {
+                        "name":"Highcharts",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/highcharts/highcharts-more.js"
+                    },
+                    {
+                        "name":"Highcharts",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/highcharts/modules/exporting.js"
+                    },
+                    {
+                        "name":"momentjs",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/daterangepicker/moment.min.js"
+                    },
+                    {
+                        "name":"slimscroll",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/jquery.slimscroll.min.js"
+                    },
+                    {
+                        "name":"daterangepicker",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/daterangepicker/jquery.daterangepicker.js"
+                    },
+                    {
+                        "name":"daterangepicker",
+                        "type":"css",
+                        "libpath":"application/libs/utils/daterangepicker/daterangepicker.min.css"
+                    },
+                    {
+                        "name":"progressgraph",
+                        "type":"javascript",
+                        "libpath":"application/libs/core/red/jquery.panelstats.js"
+                    },
+                    {
+                        "name":"dashboard",
+                        "type":"javascript",
+                        "libpath":"application/libs/core/red/jquery.dashboard.js"
+                    },
+                    {
+                        "name":"jqueryui",
+                        "type":"javascript",
+                        "libpath":"application/libs/core/jquery/jquery.easing.min.js"
+                    },
+                    {
+                        "name":"tokeninput",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/tokeninput/jquery.tokeninput.js"
+                    },
+                    {
+                        "name":"tokeninput",
+                        "type":"css",
+                        "libpath":"application/libs/utils/tokeninput/token-input-facebook.css"
+                    },
+                    {
+                        "name":"formvalidator",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/jquery.validate.min.js"
+                    },
+                    {
+                        "name":"formvalidator",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/additional-methods.min.js"
+                    },
+                    {
+                        "name":"jvectormap",
+                        "type":"css",
+                        "libpath":"application/libs/utils/jvectormap/jquery-jvectormap-1.2.2.css"
+                    },
+                    {
+                        "name":"jvectormap",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/jvectormap/jquery-jvectormap-1.2.2.min.js"
+                    },
+                    {
+                        "name":"jvectormap",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/jvectormap/jquery-jvectormap-world-mill-en.js"
+                    },
+                    {
+                        "name":"fontawesome",
+                        "type":"css",
+                        "libpath":"application/libs/utils/fontawesome/css/font-awesome.min.css"
+                    },
+                    {
+                        "name":"d3v3",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/d3.v3.min.js"
+                    },
+                    {
+                        "name":"blockUI",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/jquery.blockUI.js"
+                    },
+                    {
+                        "name":"growl",
+                        "type":"javascript",
+                        "libpath":"application/libs/utils/jqgrowl/js/jquery.growl.js"
+                    },
+                    {
+                        "name":"growl",
+                        "type":"css",
+                        "libpath":"application/libs/utils/jqgrowl/css/jquery.growl.css"
+                    },
+                    {
+                        "name":"common",
+                        "type":"javascript",
+                        "libpath":"application/templates/controllers/common.js"
+                    }
+
+       	],
+        "pages": [
+            {
+                "pageName":"REALTIME",
+                "layoutColumns": 1,
+                "showInNavigation":true,
+                "pageController": "dashboard_rt",
+                "componentList": [
+                    {
+                        "view": "toppanel",
+                        "wrapper": "row",
+                        "column": "page"
+            
+                    },
+                    {
+                        "view": "sidenav",
+                        "wrapper": "leftpanel-collapsed",
+                        "column": "page"
+            
+                    },
+                    {
+                        "view": "dashboard_rt",
+                        "wrapper": "row",
+                        "column": "page"
+            
+                    },
+                    {
+                        "view": "footer",
+                        "wrapper": "row",
+                        "column": "page"
+                    }
+                ]
+            },
+            {
+                "pageName":"ACCOUNT",
+                "layoutColumns": 1,
+                "showInNavigation":true,
+                "pageController": "account",
+                "componentList": [
+                    {
+                        "view": "toppanel",
+                        "wrapper": "row",
+                        "column": "page"
+            
+                    },
+                    {
+                        "view": "sidenav",
+                        "wrapper": "leftpanel-collapsed",
+                        "column": "page"
+            
+                    },
+                    {
+                        "view": "account",
+                        "wrapper": "row",
+                        "column": "page"
+            
+                    },
+                    {
+                        "view": "footer",
+                        "wrapper": "row",
+                        "column": "page"
+                    }
+                ]
+            }
+        ]
+    }
+}
