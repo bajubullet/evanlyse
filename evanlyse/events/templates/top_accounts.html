@@ -1,1 +1,5 @@
-{}
+{
+    {% for account in accounts %}
+        {{ account.account }}: {{ account.account_count }},
+    {% endfor %}
+}
