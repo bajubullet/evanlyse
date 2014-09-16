@@ -11,7 +11,7 @@ $(document).ready(function(){
             strConfigKey                        : 'config',
             strViewsPath                        : 'application/templates/views/',
             strControllersPath                  : 'application/templates/controllers/',
-            strPageTitle                        : 'Evanlyse',
+            strPageTitle                        : 'Evanalyse',
             objAppServerURL                     : {'SELF': '', 'LOCAL':'http://localhost:8001', 'DEV':'http://dev.cst.akamai.com:81', 'STAG':'https://stag.cst.akamai.com', 'PROD':'https://cfl.cst.akamai.com'},
             boolShowBackButton                  : true
         });

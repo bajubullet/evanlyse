@@ -34,19 +34,19 @@ $(document).ready(function() {
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: 'Events share',
             data: [
-                ['Firefox',   45.0],
-                ['IE',       26.8],
+                ['1-DR4E2',   45.0],
+                ['1-HPEAP',       26.8],
                 {
-                    name: 'Chrome',
+                    name: '1-6F34I6',
                     y: 12.8,
                     sliced: true,
                     selected: true
                 },
-                ['Safari',    8.5],
-                ['Opera',     6.2],
-                ['Others',   0.7]
+                ['1-4ZQ835',    8.5],
+                ['AANA-1ZG45D',     6.2],
+                ['AANA-2AQ43C',   0.7]
             ]
         }]
     });
@@ -84,19 +84,19 @@ $(document).ready(function() {
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: 'Events share',
             data: [
-                ['Firefox',   45.0],
-                ['IE',       26.8],
+                ['ams5.cmb',   45.0],
+                ['p3-tomapp1.',       26.8],
                 {
-                    name: 'Chrome',
+                    name: 'p3-tomapp3',
                     y: 12.8,
                     sliced: true,
                     selected: true
                 },
-                ['Safari',    8.5],
-                ['Opera',     6.2],
-                ['Others',   0.7]
+                ['p3-tomapp5',    8.5],
+                ['p3-tomapp2',     6.2],
+                ['p3-tomapp4',   0.7]
             ]
         }]
     });

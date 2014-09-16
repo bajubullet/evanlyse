@@ -7,12 +7,12 @@ $(document).ready(function() {
         },
         title: null,
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+            categories: ['Sep 9', 'Sep 10', 'Sep 11', 'Sep 12', 'Sep 13', 'Sep 14', 'Sep 15']
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: 'Events'
             },
             stackLabels: {
                 enabled: true,
@@ -53,13 +53,13 @@ $(document).ready(function() {
             }
         },
         series: [{
-            name: 'John',
+            name: 'Ready',
             data: [5, 3, 4, 7, 2]
         }, {
-            name: 'Jane',
+            name: 'Delete Upload Account',
             data: [2, 2, 3, 2, 1]
         }, {
-            name: 'Joe',
+            name: 'Created Map Ticket',
             data: [3, 4, 4, 2, 5]
         }]
     });
@@ -70,12 +70,12 @@ $(document).ready(function() {
         },
         title: null,
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+            categories: ['Sep 9', 'Sep 10', 'Sep 11', 'Sep 12', 'Sep 13', 'Sep 14', 'Sep 15']
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: 'Portals'
             },
             stackLabels: {
                 enabled: true,
@@ -116,13 +116,13 @@ $(document).ready(function() {
             }
         },
         series: [{
-            name: 'John',
+            name: 'EdgeControl',
             data: [5, 3, 4, 7, 2]
         }, {
-            name: 'Jane',
+            name: 'Support',
             data: [2, 2, 3, 2, 1]
         }, {
-            name: 'Joe',
+            name: 'Alerts',
             data: [3, 4, 4, 2, 5]
         }]
     });
