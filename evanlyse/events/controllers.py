@@ -100,4 +100,21 @@ def get_events_count_by_type(accounts=None, host_ips=None, host_names=None):
     return events
 
 
+def top_configs(n=10, most_events=True):
+    events = events.values(
+        'host').annotate(host_count=Count('host')).order_by('-host_count')
+    if most_events:
+        return events[:n]
+    else:
+        return events[-n:]
+
+
+def top_accounts(n=10, most_events=True):
+    events = events.values(
+        'account').annotate(account_count=Count('account')).order_by('-account_count')
+    if most_events:
+        return events[:n]
+    else:
+        return events[-n:]
+
 
