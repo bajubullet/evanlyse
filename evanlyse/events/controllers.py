@@ -1,4 +1,5 @@
 import models
+import datetime
 
 from django.db.models import Count
 
@@ -120,3 +121,30 @@ def top_accounts(n=10, by_most_events=True):
         return events[-n:]
 
 
+def top_events(account_id, n=10):
+    try:
+        account = models.Account.objects.get(account_id=account_id)
+    except:
+        return {}
+
+    days_tuples = [
+        (datetime.datetime(2014, 9, 7),
+         datetime.datetime(2014, 9, 8)),
+        (datetime.datetime(2014, 9, 8),
+         datetime.datetime(2014, 9, 9)),
+        (datetime.datetime(2014, 9, 9),
+         datetime.datetime(2014, 9, 10))
+    ]
+    result = {}
+    for from_date, to_date in days_tuples:
+        values = models.EventInstance.objects.filter(
+            account=account, event_time__range=(from_date, to_date)).values(
+                'event_definition').annotate(
+                    defn_count=Count('event_definition')).order_by(
+                        'defn_count')[:10]
+        values = [{
+            'name': val['event_definition'],
+            'count': val['defn_count']} for val in values]
+        result[from_date] = values
+
+    return result

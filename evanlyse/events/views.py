@@ -25,12 +25,23 @@ def top_hosts(request):
 def top_accounts(request):
     by_most_events = request.GET.get('by_most_events', True)
     by_most_events = False if by_most_events == 'False' else True
-    account_data = controllers.top_accounts()
+
+    account_data = controllers.top_accounts(
+        by_most_events=by_most_events),
     response = shortcuts.render_to_response(
         'top_accounts.html',
-        controllers.top_accounts(by_most_events=by_most_events),
         context_instance=template.RequestContext(request, {
             'accounts': account_data
         }),
         content_type="application/json")
+    return response
+
+
+def top_events(request):
+    account_id = request.GET.get('account', '')
+    events = controllers.top_events(account_id)
+    response = shortcuts.render_to_response(
+        'top_events.html',
+        context_instance=template.RequestContext(
+            request, {'events': events}))
     return response
