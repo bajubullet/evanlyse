@@ -114,7 +114,7 @@ def get_events_count_by_type(accounts=None, host_ips=None, host_names=None):
 
 def top_hosts(n=10, by_most_events=True):
     events = models.EventInstance.objects.values(
-        'host').annotate(host_count=Count('host')).order_by('-host_count')
+        'host__host_name').annotate(host_count=Count('host')).order_by('-host_count')
     if by_most_events is True:
         events = events.order_by('-host_count')
         return events[:n]
