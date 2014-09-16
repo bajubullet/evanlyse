@@ -1,5 +1,7 @@
 import models
 
+from django.db.models import Count
+
 
 def get_events_by_account(account_id):
     """Returns events for given account
@@ -100,19 +102,19 @@ def get_events_count_by_type(accounts=None, host_ips=None, host_names=None):
     return events
 
 
-def top_configs(n=10, most_events=True):
-    events = events.values(
+def top_hosts(n=10, by_most_events=True):
+    events = models.EventInstance.objects.values(
         'host').annotate(host_count=Count('host')).order_by('-host_count')
-    if most_events:
+    if by_most_events is True:
         return events[:n]
     else:
         return events[-n:]
 
 
-def top_accounts(n=10, most_events=True):
-    events = events.values(
+def top_accounts(n=10, by_most_events=True):
+    events = models.EventInstance.objects.values(
         'account').annotate(account_count=Count('account')).order_by('-account_count')
-    if most_events:
+    if by_most_events is True:
         return events[:n]
     else:
         return events[-n:]
