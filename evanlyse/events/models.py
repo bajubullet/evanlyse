@@ -25,17 +25,17 @@ class Account(models.Model):
 
 
 class Host(models.Model):
-    host_ip = models.IPAddressField(_('host ip'))
+    host_ip = models.CharField(_('host ip'), max_length=255)
     host_name = models.CharField(_('host name'), max_length=255)
 
 
 class EventInstance(models.Model):
-    object_type = models.CharField(_('object type'), max_length=255)
     object_id = models.IntegerField(_('object id'), null=True, blank=True)
     account = models.ForeignKey(Account)
     event_time = models.DateTimeField(_('event time'))
-    event_receive_time = models.DateTimeField(_('event receive time'), auto_now_add=True)
+    event_receive_time = models.DateTimeField(
+        _('event receive time'), auto_now_add=True)
     event_definition = models.ForeignKey(EventDefinition)
     host = models.ForeignKey(Host)
     event_uuid = models.CharField(max_length=255)
-
+    object_type = models.CharField(_('object type'), max_length=255)

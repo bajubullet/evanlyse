@@ -18,9 +18,8 @@ def top_hosts(request):
     host_data = controllers.top_hosts(by_most_events=by_most_events)
     response = shortcuts.render_to_response(
         'top_hosts.html',
-        context_instance=template.RequestContext(request, {
-            'hosts': host_data
-        }),
+        controllers.top_hosts(by_most_events=by_most_events),
+        context_instance=template.RequestContext(request),
         content_type="application/json")
     return response
 
@@ -58,4 +57,14 @@ def suspected_event(request):
         context_instance=template.RequestContext(request),
         content_type="application/json")
     return response
+
+def top_events(request):
+    account_id = request.GET.get('account', '')
+    events = controllers.top_events(account_id)
+    response = shortcuts.render_to_response(
+        'top_events.html',
+        context_instance=template.RequestContext(
+            request, {'events': events}))
+    return response
+
 

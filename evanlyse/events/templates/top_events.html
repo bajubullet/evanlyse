@@ -1,0 +1,6 @@
+{
+    {% for key, values in events.items %}
+        '{{ key }}': [{% for v in values %}
+               {{ v }}{% if not forloop.last %},{% endif %}{% endfor %}]{% if not forloop.last %},{% endif %}
+    {% endfor %}
+}
