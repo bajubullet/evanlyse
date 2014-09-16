@@ -1,5 +1,5 @@
 {
     {% for account in accounts %}
-        {{ account.account }}: {{ account.account_count }},
+        '{{ account.account }}': {{ account.account_count }}{% if not forloop.last},{% endif %}
     {% endfor %}
 }
