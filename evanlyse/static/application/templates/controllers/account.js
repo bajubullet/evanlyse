@@ -1,6 +1,14 @@
 /* JS for Real-time Dashboard */
 $(document).ready(function() {
 
+    var account_id = sessionStorage['account'];
+    $.get('/suspected_event/?account_id=1-4ZQ835', function(data) {
+        data = JSON.parse(data);
+        var str = 'Suspected event : <br/>Name: ' + data['event'] + '<br/> Description: ' + data['description'];
+        $('#status-text').html(str);
+    });
+
+
     $('#first-chart').highcharts({
         chart: {
             type: 'column'

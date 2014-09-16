@@ -1,4 +1,4 @@
 {
-    'event': {{event}},
-    'description': {{description}}
+    'event': '{{event}}',
+    'description': '{{description}}'
 }

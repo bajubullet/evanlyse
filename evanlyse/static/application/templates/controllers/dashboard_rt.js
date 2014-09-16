@@ -1,6 +1,22 @@
 /* JS for Real-time Dashboard */
 $(document).ready(function() {
 
+    $engine.makeAJAXRequest(
+                    '/top_accounts/',
+                    'get',
+                    {},
+                    'application/x-www-form-urlencoded; charset=UTF-8',
+                    'json',
+                    {},
+                    true,
+                    function(data) {
+                        debugger;
+                    },
+                    function(data) {
+                        debugger;
+                    }
+                );
+
     $('#first-chart').highcharts({
         chart: {
             plotBackgroundColor: null,
