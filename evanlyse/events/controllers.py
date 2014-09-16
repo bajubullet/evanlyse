@@ -116,17 +116,21 @@ def top_hosts(n=10, by_most_events=True):
     events = models.EventInstance.objects.values(
         'host').annotate(host_count=Count('host')).order_by('-host_count')
     if by_most_events is True:
+        events = events.order_by('-host_count')
         return events[:n]
     else:
-        return events[-n:]
+        events = events.order_by('host_count')
+        return events[:n]
 
 
 def top_accounts(n=10, by_most_events=True):
     events = models.EventInstance.objects.values(
-        'account').annotate(account_count=Count('account')).order_by('-account_count')
+        'account').annotate(account_count=Count('account'))
     if by_most_events is True:
+        events = events.order_by('-account_count')
         return events[:n]
     else:
-        return events[-n:]
+        events = events.order_by('account_count')
+        return events[:n]
 
 
